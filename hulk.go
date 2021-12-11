@@ -522,7 +522,7 @@ func main() {
 	t := os.Getenv("HULKMAXPROCS")
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
-		maxproc = 50000
+		maxproc = 5000
 	}
 
 	u, err := url.Parse(site)
@@ -645,7 +645,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		r.Body.Close()
 		s <- callGotOk
 		if safe {
-			if r.StatusCode >= 529 {
+			if r.StatusCode >= 502 {
 				s <- targetComplete
 			}
 		}
