@@ -645,7 +645,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		r.Body.Close()
 		s <- callGotOk
 		if safe {
-			if r.StatusCode >= 403 {
+			if r.StatusCode >= 405 {
 				s <- targetComplete
 			}
 		}
@@ -655,7 +655,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
-		a = append(a, rune(rand.Intn(29)+70))
+		a = append(a, rune(rand.Intn(30)+29))
 	}
 	return string(a)
 }
