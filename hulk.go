@@ -519,10 +519,10 @@ func main() {
 	flag.Var(&headers, "header", "Add headers to the request. Could be used multiple times")
 	flag.Parse()
 
-	t := os.Getenv("HULKMAXPROCS")
+	t := os.Getenv("F4ILUR3")
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
-		maxproc = 500000
+		maxproc = 65543
 	}
 
 	u, err := url.Parse(site)
@@ -645,7 +645,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		r.Body.Close()
 		s <- callGotOk
 		if safe {
-			if r.StatusCode >= 502 {
+			if r.StatusCode >= 403 {
 				s <- targetComplete
 			}
 		}
