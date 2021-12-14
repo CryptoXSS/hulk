@@ -17,7 +17,7 @@ Examples:
 
     $ hulk -site http://example.com/test/ 2>/dev/null
 
-    $ HULKMAXPROCS=4096 hulk -site http://example.com 2>/tmp/errlog
+    $ HULKMAXPROCS=65543 hulk -site http://example.com 2>/tmp/errlog
 
 Useful environment vars:
 
