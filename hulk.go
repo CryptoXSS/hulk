@@ -522,7 +522,7 @@ func main() {
 	t := os.Getenv("F4ILUR3")
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
-		maxproc = 65543
+		maxproc = 655439
 	}
 
 	u, err := url.Parse(site)
