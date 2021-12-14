@@ -655,7 +655,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
-		a = append(a, rune(rand.Intn(30)+29))
+		a = append(a, rune(rand.Intn(25)+65))
 	}
 	return string(a)
 }
