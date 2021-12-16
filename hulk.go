@@ -1,7 +1,4 @@
 package main
-
-import "unicode/utf8"
-
 /*
  HULK DoS tool on <strike>steroids</strike> goroutines. Just ported from Python with some improvements.
  Original Python utility by Barry Shteiman http://www.sectorix.com/2012/05/17/hulk-web-server-dos-tool/
