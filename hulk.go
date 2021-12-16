@@ -9,6 +9,7 @@ package main
  Copyright Alexander I.Grafov <grafov@gmail.com>
 */
 
+
 import (
 	"flag"
 	"fmt"
@@ -22,7 +23,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"syscall"
-	
+	"unicode/utf8"
 )
 
 const __version__  = "1.0.1"
