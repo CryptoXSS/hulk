@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"unicode/utf8"
-)
+import "unicode/utf8"
 
 /*
  HULK DoS tool on <strike>steroids</strike> goroutines. Just ported from Python with some improvements.
@@ -26,6 +23,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"syscall"
+	"unicode/utf8"
 )
 
 const __version__  = "1.0.1"
