@@ -23,7 +23,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"syscall"
-	"unicode/utf8"
+	
 )
 
 const __version__  = "1.0.1"
