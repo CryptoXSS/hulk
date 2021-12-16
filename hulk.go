@@ -1,4 +1,6 @@
 package main
+
+
 /*
  HULK DoS tool on <strike>steroids</strike> goroutines. Just ported from Python with some improvements.
  Original Python utility by Barry Shteiman http://www.sectorix.com/2012/05/17/hulk-web-server-dos-tool/
@@ -20,7 +22,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"syscall"
-	"unicode/utf8"
+	
 )
 
 const __version__  = "1.0.1"
