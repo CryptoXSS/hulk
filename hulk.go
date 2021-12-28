@@ -562,7 +562,7 @@ func main() {
 		)
 		fmt.Println("In use               |\tResp OK |\tGot err")
 		for {
-			if atomic.LoadInt32(&cur) < int32(maxproc-1) {
+			if atomic.LoadInt32(&cur) < int32(maxproc-6) {
 				go httpcall(site, u.Host, data, headers, ss)
 			}
 			if sent%10 == 0 {
@@ -609,9 +609,9 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		var err error
 
 		if data == "" {
-			q, err = http.NewRequest("GET", url+param_joiner+buildblock(rand.Intn(7)+3)+"="+buildblock(rand.Intn(7)+3), nil)
+			q, err = http.NewRequest("DELETE", url+param_joiner+buildblock(rand.Intn(9)+5)+"="+buildblock(rand.Intn(9)+5), nil)
 		} else {
-			q, err = http.NewRequest("POST", url, strings.NewReader(data))
+			q, err = http.NewRequest("POC", url, strings.NewReader(data))
 			
 		}
 
