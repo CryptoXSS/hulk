@@ -526,7 +526,7 @@ func main() {
 	maxproc, err := strconv.Atoi(t)
 	if err != nil {
 		maxproc = 10000
-		pause
+		
 		
 	}      
 
